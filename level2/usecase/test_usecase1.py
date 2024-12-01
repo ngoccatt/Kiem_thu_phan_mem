@@ -14,36 +14,45 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 filename = path = Path(__file__).parent / "usecaseData_full.json"
 
-dataTest = []
+
 nameTest = []
+
 def dataForTest():
-    global dataTest, nameTest
+    global nameTest
+    commonData = {}
+    dataTest = []
     with open(filename, "r") as f:
         data = json.load(f)
         for key, values in data.items():
             print(key)
-            url = values["url"]
-            loginCredential = values["loginCredential"]
-            eventName = values["eventName"]
-            startTime = values["startTime"]
-            extend = values["extend"]
-            eventDescription = values["eventDescription"]
-            eventLocation = values["eventLocation"]
-            durationSelection = values["durationSelection"]
-            repeat = values["repeat"]
-            expectedResult = values["expectResult"]
-            dataTest.append(
-                (url, loginCredential, eventName, startTime,
-                 extend, eventDescription, eventLocation,
-                 durationSelection, repeat,
-                 expectedResult)
-            )
-            nameTest.append(key)
+            if "commonData" in key:
+                commonData = values
+            if "test" in key:
+                url = values["url"]
+                loginCredential = values["loginCredential"]
+                eventName = values["eventName"]
+                startTime = values["startTime"]
+                extend = values["extend"]
+                eventDescription = values["eventDescription"]
+                eventLocation = values["eventLocation"]
+                durationSelection = values["durationSelection"]
+                repeat = values["repeat"]
+                expectedResult = values["expectResult"]
+                dataTest.append(
+                    (commonData, url, loginCredential, eventName, startTime,
+                     extend, eventDescription, eventLocation,
+                     durationSelection, repeat,
+                     expectedResult)
+                )
+                nameTest.append(key)
+
     return dataTest
 
-
+"""
+get element value, assuming each element have "value" attribute
+"""
 def getElementValue(element):
-    return element["value"]
+    return element["value"].strip()
 
 
 class TestUsecase1():
@@ -66,11 +75,16 @@ class TestUsecase1():
     def findElementShort(self, element):
         return self.driver.find_element(By.get_finder(element["findMethod"]), element["findString"])
 
-    """
-    get element value, assuming each element have "value" attribute
-    """
+    def exit_help_modal(self, driver):
+        # Create an ActionChains object
+        actions = ActionChains(driver)
+        # Send the ESC key to exit the help modal
+        actions.send_keys(Keys.ESCAPE).perform()
+        actions.send_keys(Keys.ESCAPE).perform()
+
 
     @pytest.mark.parametrize(
+        "commonData, "
         "url, "
         "loginCredential, "  # (username, password)
         "eventName, "
@@ -84,23 +98,23 @@ class TestUsecase1():
         dataForTest(),
         ids=nameTest
     )
-    def test_usecase1(self, url, loginCredential, eventName, startTime, extend,
+    def test_usecase1(self, commonData, url, loginCredential, eventName, startTime, extend,
                       eventDescription, eventLocation, durationSelection,
                       repeat,
                       expectedResult):
         self.driver.get(url)
         self.driver.set_window_size(1274, 757)
-        self.driver.find_element(By.CSS_SELECTOR, ".login > a").click()
+        self.findElementShort(commonData["loginHomeButton"]).click()
         time.sleep(3)
         self.findElementShort(loginCredential["username"]).clear()
         self.findElementShort(loginCredential["password"]).clear()
         self.findElementShort(loginCredential["username"]).send_keys(getElementValue(loginCredential["username"]))
         self.findElementShort(loginCredential["password"]).send_keys(getElementValue(loginCredential["password"]))
 
-        self.driver.find_element(By.CSS_SELECTOR, ".login-container").click()
-        self.driver.find_element(By.ID, "loginbtn").click()
+        # self.driver.find_element(By.CSS_SELECTOR, ".login-container").click()
+        self.findElementShort(commonData["loginButton"]).click()
         time.sleep(3)       #page transition wait
-        self.driver.find_element(By.LINK_TEXT, "Dashboard").click()
+        self.findElementShort(commonData["dashboardButton"]).click()
         time.sleep(2)       #page transition wait
 
         self.vars["month"] = self.driver.find_element(By.CSS_SELECTOR, ".current:nth-child(3)").text
@@ -109,7 +123,22 @@ class TestUsecase1():
             self.driver.find_element(By.CSS_SELECTOR, ".arrow_text:nth-child(2)").click()
             time.sleep(1)
 
-        self.driver.find_element(By.XPATH, "//button[contains(.,\'New event\')]").click()
+        try:
+            while self.findElementShort(commonData["cleanEventFailedToDelete"]).is_displayed():
+                self.findElementShort(commonData["cleanEventFailedToDelete"]).click()
+                time.sleep(2)
+                delButton = self.findElementShort(commonData["deleteEventButton"])
+                delButton.click()
+                time.sleep(3)
+                delButton = self.findElementShort(commonData["confirmDelete"])
+                delButton.click()
+                time.sleep(3)
+                self.exit_help_modal(self.driver)
+        except:
+            pass
+
+        self.findElementShort(commonData["newEventButton"]).click()
+        time.sleep(1)
         self.findElementShort(eventName).send_keys(getElementValue(eventName))
 
         self.findElementShort(startTime["day"]).click()
@@ -142,7 +171,15 @@ class TestUsecase1():
             self.driver.execute_script(
                 "if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '" + getElementValue(eventDescription) + "'}",
                 element)
-            time.sleep(1)
+            time.sleep(3)
+            self.driver.execute_script(
+                "if(arguments[0].contentEditable === 'true') {arguments[0].innerText = ''}",
+                element)
+            time.sleep(3)
+            self.driver.execute_script(
+                "if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '" + getElementValue(
+                    eventDescription) + "'}",
+                element)
             self.driver.switch_to.default_content()
 
             self.findElementShort(eventLocation).send_keys(getElementValue(eventLocation))
@@ -186,10 +223,10 @@ class TestUsecase1():
                 # self.driver.find_element(By.ID, "fitem_id_repeats").click()
                 self.findElementShort(repeat["noOfRepeat"]).clear()
                 self.findElementShort(repeat["noOfRepeat"]).send_keys(getElementValue(repeat["noOfRepeat"]))
-        self.driver.find_element(By.XPATH, "//button[contains(.,\'Save\')]").click()
-        time.sleep(1)
+        self.findElementShort(commonData["saveEventButton"]).click()
+        time.sleep(3)
 
-        if eventName == "":
+        if getElementValue(eventName) == "":
             assert (self.findElementShort(expectedResult["expectedError"]).text ==
                     getElementValue(expectedResult["expectedError"]))
             self.exception = True
@@ -207,7 +244,7 @@ class TestUsecase1():
                 By.XPATH, f".//option[. = '{getElementValue(startTime["day"])}']").click()
 
         if not self.exception:
-            self.driver.find_element(By.CSS_SELECTOR, ".eventname").click()
+            self.findElementShort(commonData["eventLocation1"]).click()
             # self.driver.find_element(By.CSS_SELECTOR, ".row:nth-child(1) > .col-11").click()
             time.sleep(2)
             assert (self.findElementShort(expectedResult["expectedTime"]).text ==
@@ -220,19 +257,20 @@ class TestUsecase1():
                     assert (self.findElementShort(expectedResult["expectedLocation"]).text ==
                             getElementValue(expectedResult["expectedLocation"]))
             time.sleep(1)
-            self.driver.find_element(By.XPATH, "//div[2]/div/div/div[3]/button").click()
-            time.sleep(1)
+            delButton = self.findElementShort(commonData["deleteEventButton"])
+            delButton.click()
+            time.sleep(3)
+
             if not eval(getElementValue(repeat)):
-                delButton = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete event\')]")
+                delButton = self.findElementShort(commonData["confirmDelete"])
                 delButton.click()
                 time.sleep(1)
             else:
-                delButton = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete this event\')]")
+                delButton = self.findElementShort(commonData["confirmDelete"])
                 delButton.click()
-
                 time.sleep(3)
                 # delete second event:
-                self.driver.find_element(By.XPATH, "//tr[4]/td[2]/div/div/ul/li/a/span[2]").click()
+                self.findElementShort(commonData["eventLocation2"]).click()
                 time.sleep(2)
                 assert (self.findElementShort(expectedResult["expectedTime2"]).text ==
                         getElementValue(expectedResult["expectedTime2"]).replace("Â", ""))
@@ -244,30 +282,30 @@ class TestUsecase1():
                         assert (self.findElementShort(expectedResult["expectedLocation"]).text ==
                                 getElementValue(expectedResult["expectedLocation"]))
                 time.sleep(2)       # to find the damn button
-                delButton = self.driver.find_element(By.XPATH, ".//div[2]/div/div/div[3]/button")
+                delButton = self.findElementShort(commonData["deleteEventButton"])
                 delButton.click()
                 time.sleep(1)
-                delButton2 = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete event\')]")
-                delButton2.click()
+                delButton = self.findElementShort(commonData["confirmDelete"])
+                delButton.click()
 
         else:       # exception = True
             self.driver.find_element(By.ID, "id_name").click()
             self.driver.find_element(By.ID, "id_name").clear()
             self.driver.find_element(By.ID, "id_name").send_keys("exception")
             time.sleep(3)
-            exButton = self.driver.find_element(By.XPATH, "//button[contains(.,'Save')]")
+            exButton = self.findElementShort(commonData["saveEventButton"])
             exButton.click()
             if exButton.is_displayed():
                 exButton.click()
             time.sleep(1)
-            self.driver.find_element(By.XPATH, "//span[contains(.,\'exception\')]").click()
+            self.findElementShort(commonData["exceptionEventLocation"]).click()
             time.sleep(2)
-            self.driver.find_element(By.XPATH, "//div[2]/div/div/div[3]/button").click()
+            self.findElementShort(commonData["deleteEventButton"]).click()
             time.sleep(1)
-            delButton = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete event\')]")
+            delButton = self.findElementShort(commonData["confirmDelete"])
             delButton.click()
 
         #log out
         time.sleep(3)
-        self.driver.find_element(By.ID, "user-menu-toggle").click()
-        self.driver.find_element(By.XPATH, "//a[contains(.,\'Log out\')]").click()
+        self.findElementShort(commonData["userToggleMenu"]).click()
+        self.findElementShort(commonData["logOutButton"]).click()

@@ -94,9 +94,9 @@ class TestDecisiontb1():
         time.sleep(3)
         self.driver.find_element(By.CSS_SELECTOR, ".modal-footer > .btn-primary").click()
         assert self.driver.find_element(By.XPATH,
-                                        "//div[contains(@id,\"-1\") and contains(@id,\"question\")]//div[contains(@class,\"grade\")]").text == expectedGrade1
+    "//form[contains(@class, \'questionflagsaveform\')]//div//div[contains(@id, 'question')][1]//div[contains(@class,\'grade\')]").text == expectedGrade1
         assert self.driver.find_element(By.XPATH,
-                                        "//div[contains(@id,\"-2\") and contains(@id,\"question\")]//div[contains(@class,\"grade\")]").text == expectedGrade2
+    "//form[contains(@class, \'questionflagsaveform\')]//div//div[contains(@id, 'question')][2]//div[contains(@class,\'grade\')]").text == expectedGrade2
         self.driver.find_element(By.LINK_TEXT, "Finish review").click()
         time.sleep(3)
         self.driver.find_element(By.ID, "user-menu-toggle").click()

@@ -87,6 +87,9 @@ class TestBoundary1():
         self.driver.find_element(By.CSS_SELECTOR, ".modal-footer > .btn-primary").click()
         time.sleep(2)
         assert self.driver.find_element(By.CSS_SELECTOR, "tr:nth-child(5) > .cell:nth-child(2)").text == expectedTotal
+        actions = ActionChains(self.driver)
+        # Scroll down till the end (Finish review button is INTERCEPTED BY THE STUPID "THIS PAGE WILL BE RESET" OF MOODLE")
+        actions.scroll_by_amount(0, 1000).perform()
         self.driver.find_element(By.LINK_TEXT, "Finish review").click()
         time.sleep(3)
         self.driver.find_element(By.ID, "user-menu-toggle").click()

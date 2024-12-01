@@ -1,0 +1,274 @@
+{
+  "commonData": {
+    "loginHomeButton" : {
+      "findMethod": "CSS_SELECTOR",
+      "findString": ".login > a",
+      "value": ""
+    },
+    "loginButton" : {
+      "findMethod": "ID",
+      "findString": "loginbtn",
+      "value": ""
+    },
+    "myCourseButton" : {
+      "findMethod": "LINK_TEXT",
+      "findString": "My courses",
+      "value": ""
+    },
+    "myFirstCourse" : {
+      "findMethod": "CSS_SELECTOR",
+      "findString": ".multiline > span:nth-child(2)",
+      "value": ""
+    },
+    "quiz1" : {
+      "findMethod": "CSS_SELECTOR",
+      "findString": ".modtype_quiz .aalink",
+      "value": ""
+    },
+    "attemptQuizButton" : {
+      "findMethod": "XPATH",
+      "findString": "//button[contains(.,'Attempt quiz') or contains(.,'Re-attempt quiz')]",
+      "value": ""
+    },
+    "finishQuizButton" : {
+      "findMethod": "ID",
+      "findString": "mod_quiz-next-nav",
+      "value": ""
+    },
+    "submitQuizButton" : {
+      "findMethod": "XPATH",
+      "findString": "//button[contains(.,'Submit all and finish')]",
+      "value": ""
+    },
+    "confirmSubmitButton" : {
+      "findMethod": "CSS_SELECTOR",
+      "findString": ".modal-footer > .btn-primary",
+      "value": ""
+    },
+    "finishReviewButton" : {
+      "findMethod": "LINK_TEXT",
+      "findString": "Finish review",
+      "value": ""
+    },
+    "userToggleMenu": {
+      "findMethod": "ID",
+      "findString": "user-menu-toggle",
+      "value": ""
+    },
+    "logOutButton": {
+      "findMethod": "XPATH",
+      "findString": "//a[contains(.,'Log out')]",
+      "value": ""
+    }
+  },
+  "test 1": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "answer1": {
+      "findMethod": "XPATH",
+      "findString": "//input[contains(@id, '1_answer')]",
+      "value": "24.409"
+    },
+    "answer2": {
+      "findMethod": "XPATH",
+      "findString": "//input[contains(@id,'2_answer')]",
+      "value": "24.409cm"
+    },
+    "expectedTotal": {
+      "findMethod": "CSS_SELECTOR",
+      "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+      "value": "0.00/2.00"
+    }
+  },
+  "test 2": {
+  "url": "https://sandbox404.moodledemo.net/",
+  "loginCredential": {
+    "username": {
+      "findMethod": "ID",
+      "findString": "username",
+      "value": "student"
+    },
+    "password": {
+      "findMethod": "ID",
+      "findString": "password",
+      "value": "sandbox24"
+    }
+  },
+  "answer1": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id, '1_answer')]",
+    "value": "24.41"
+  },
+  "answer2": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id,'2_answer')]",
+    "value": "24.41cm"
+  },
+  "expectedTotal": {
+    "findMethod": "CSS_SELECTOR",
+    "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+    "value": "2.00/2.00"
+  }
+},
+  "test 3": {
+  "url": "https://sandbox404.moodledemo.net/",
+  "loginCredential": {
+    "username": {
+      "findMethod": "ID",
+      "findString": "username",
+      "value": "student"
+    },
+    "password": {
+      "findMethod": "ID",
+      "findString": "password",
+      "value": "sandbox24"
+    }
+  },
+  "answer1": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id, '1_answer')]",
+    "value": "24.411"
+  },
+  "answer2": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id,'2_answer')]",
+    "value": "24.411cm"
+  },
+  "expectedTotal": {
+    "findMethod": "CSS_SELECTOR",
+    "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+    "value": "2.00/2.00"
+  }
+},
+  "test 4": {
+  "url": "https://sandbox404.moodledemo.net/",
+  "loginCredential": {
+    "username": {
+      "findMethod": "ID",
+      "findString": "username",
+      "value": "student"
+    },
+    "password": {
+      "findMethod": "ID",
+      "findString": "password",
+      "value": "sandbox24"
+    }
+  },
+  "answer1": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id, '1_answer')]",
+    "value": "24.42"
+  },
+  "answer2": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id,'2_answer')]",
+    "value": "24.42cm"
+  },
+  "expectedTotal": {
+    "findMethod": "CSS_SELECTOR",
+    "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+    "value": "2.00/2.00"
+  }
+},
+  "test 5": {
+  "url": "https://sandbox404.moodledemo.net/",
+  "loginCredential": {
+    "username": {
+      "findMethod": "ID",
+      "findString": "username",
+      "value": "student"
+    },
+    "password": {
+      "findMethod": "ID",
+      "findString": "password",
+      "value": "sandbox24"
+    }
+  },
+  "answer1": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id, '1_answer')]",
+    "value": "24.429"
+  },
+  "answer2": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id,'2_answer')]",
+    "value": "24.429cm"
+  },
+  "expectedTotal": {
+    "findMethod": "CSS_SELECTOR",
+    "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+    "value": "2.00/2.00"
+  }
+},
+  "test 6": {
+  "url": "https://sandbox404.moodledemo.net/",
+  "loginCredential": {
+    "username": {
+      "findMethod": "ID",
+      "findString": "username",
+      "value": "student"
+    },
+    "password": {
+      "findMethod": "ID",
+      "findString": "password",
+      "value": "sandbox24"
+    }
+  },
+  "answer1": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id, '1_answer')]",
+    "value": "24.43"
+  },
+  "answer2": {
+    "findMethod": "XPATH",
+    "findString": "//input[contains(@id,'2_answer')]",
+    "value": "24.43cm"
+  },
+  "expectedTotal": {
+    "findMethod": "CSS_SELECTOR",
+    "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+    "value": "2.00/2.00"
+  }
+},
+  "test 7": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "answer1": {
+      "findMethod": "XPATH",
+      "findString": "//input[contains(@id, '1_answer')]",
+      "value": "24.431"
+    },
+    "answer2": {
+      "findMethod": "XPATH",
+      "findString": "//input[contains(@id,'2_answer')]",
+      "value": "24.431cm"
+    },
+    "expectedTotal": {
+      "findMethod": "CSS_SELECTOR",
+      "findString": "tr:nth-child(5) > .cell:nth-child(2)",
+      "value": "0.00/2.00"
+    }
+  }
+}

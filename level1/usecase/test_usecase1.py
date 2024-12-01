@@ -101,6 +101,21 @@ class TestUsecase1():
         if self.driver.execute_script("return (arguments[0] != \"November 2024\")", self.vars["month"]):
             assert self.driver.find_element(By.CSS_SELECTOR, ".arrow_text:nth-child(2)").text == "November"
             self.driver.find_element(By.CSS_SELECTOR, ".arrow_text:nth-child(2)").click()
+
+        try:
+            while self.driver.find_element(By.XPATH, "//span[contains(.,\'Testing\')]").is_displayed():
+                self.driver.find_element(By.XPATH, "//span[contains(.,\'Testing\')]").click()
+                time.sleep(2)
+                delButton = self.driver.find_element(By.XPATH, "//div[2]/div/div/div[3]/button[contains(.,'Delete')]")
+                delButton.click()
+                time.sleep(2)
+                delButton = self.driver.find_element(By.XPATH,
+                         "//div[contains(@class,'show')]//button[contains(.,'Delete event') or contains(.,'Delete this event')]")
+                delButton.click()
+                time.sleep(2)
+        except:
+            pass
+
         self.driver.find_element(By.XPATH, "//button[contains(.,\'New event\')]").click()
         self.driver.find_element(By.ID, "id_name").send_keys(eventName)
 
@@ -128,6 +143,22 @@ class TestUsecase1():
             self.driver.find_element(By.LINK_TEXT, "Show more...").click()
             time.sleep(3)
             # access data in a iframe: https://stackoverflow.com/questions/52045083/how-to-get-attribute-src-from-iframe-in-iframe-using-selenium
+            self.driver.switch_to.frame("id_description_ifr")
+            element = self.driver.find_element(By.ID, "tinymce")
+            self.driver.execute_script(
+                "if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '" + eventDescription + "'}",
+                element)
+            time.sleep(1)
+            self.driver.switch_to.default_content()
+            time.sleep(2)
+            self.driver.switch_to.frame("id_description_ifr")
+            element = self.driver.find_element(By.ID, "tinymce")
+            self.driver.execute_script(
+                "if(arguments[0].contentEditable === 'true') {arguments[0].innerText = ''}",
+                element)
+            time.sleep(1)
+            self.driver.switch_to.default_content()
+            time.sleep(2)
             self.driver.switch_to.frame("id_description_ifr")
             element = self.driver.find_element(By.ID, "tinymce")
             self.driver.execute_script(
@@ -188,16 +219,18 @@ class TestUsecase1():
                 if expectedLocation != "":
                     assert self.driver.find_element(By.CSS_SELECTOR, ".location-content").text == expectedLocation
             time.sleep(1)
-            self.driver.find_element(By.XPATH, "//div[2]/div/div/div[3]/button").click()
+            delButton = self.driver.find_element(By.XPATH, ".//div[2]/div/div/div[3]/button[contains(.,'Delete')]")
+            delButton.click()
             time.sleep(1)
             if not repeat:
-                delButton = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete event\')]")
+                delButton = self.driver.find_element(By.XPATH,
+                     "//div[contains(@class,'show')]//button[contains(.,'Delete event')]")
                 delButton.click()
                 time.sleep(1)
             else:
-                delButton = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete this event\')]")
+                delButton = self.driver.find_element(By.XPATH,
+                    "//div[contains(@class,'show')]//button[contains(.,\'Delete this event\')]")
                 delButton.click()
-
                 time.sleep(3)
                 # delete second event:
                 self.driver.find_element(By.XPATH, "//tr[4]/td[2]/div/div/ul/li/a/span[2]").click()
@@ -209,11 +242,11 @@ class TestUsecase1():
                     if expectedLocation != "":
                         assert self.driver.find_element(By.CSS_SELECTOR, ".location-content").text == "School"
                 time.sleep(2)       # to find the damn button
-                delButton = self.driver.find_element(By.XPATH, ".//div[2]/div/div/div[3]/button")
+                delButton = self.driver.find_element(By.XPATH, ".//div[2]/div/div/div[3]/button[contains(.,'Delete')]")
                 delButton.click()
                 time.sleep(1)
-                delButton2 = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete event\')]")
-                delButton2.click()
+                delButton = self.driver.find_element(By.XPATH, "//div[contains(@class,'show')]//button[contains(.,\'Delete event\')]")
+                delButton.click()
 
         else:       # exception = True
             self.driver.find_element(By.ID, "id_name").click()
@@ -227,10 +260,11 @@ class TestUsecase1():
             time.sleep(1)
             self.driver.find_element(By.XPATH, "//span[contains(.,\'exception\')]").click()
             time.sleep(2)
-            self.driver.find_element(By.XPATH, "//div[2]/div/div/div[3]/button").click()
+            self.driver.find_element(By.XPATH, ".//div[2]/div/div/div[3]/button[contains(.,'Delete')]").click()
             time.sleep(1)
-            delButton = self.driver.find_element(By.XPATH, "//button[contains(.,\'Delete event\')]")
+            delButton = self.driver.find_element(By.XPATH, "//div[contains(@class,'show')]//button[contains(.,\'Delete event\')]")
             delButton.click()
+
 
         #log out
         time.sleep(3)

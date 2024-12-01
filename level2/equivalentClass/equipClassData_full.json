@@ -1,0 +1,1330 @@
+{
+  "commonData": {
+    "loginHomeButton" : {
+      "findMethod": "CSS_SELECTOR",
+      "findString": ".login > a",
+      "value": ""
+    },
+    "loginButton" : {
+      "findMethod": "ID",
+      "findString": "loginbtn",
+      "value": ""
+    },
+    "dashboardButton" : {
+      "findMethod": "LINK_TEXT",
+      "findString": "Dashboard",
+      "value": ""
+    },
+    "newEventButton" : {
+      "findMethod": "XPATH",
+      "findString": "//button[contains(.,'New event')]",
+      "value": ""
+    },
+    "userToggleMenu": {
+      "findMethod": "ID",
+      "findString": "user-menu-toggle",
+      "value": ""
+    },
+    "logOutButton": {
+      "findMethod": "XPATH",
+      "findString": "//a[contains(.,'Log out')]",
+      "value": ""
+    }
+  },
+  "test 1": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "11"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 2": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "11"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 3": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 4": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 5": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "2"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 6": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "18"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "2"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 7": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "11"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 8": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "11"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 9": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 10": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 11": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "1"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "3"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 12": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "29"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "2"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 13": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "11"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 14": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "11"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 15": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 16": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 17": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "2"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "3"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 18": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "30"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "1"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "3"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 19": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "1"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 20": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "1"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 21": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 22": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "December"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "12"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  },
+  "test 23": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "3"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "3"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2023"
+      }
+    }
+  },
+  "test 24": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "31"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "February"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    },
+    "expectedTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "2"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "3"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      }
+    }
+  }
+}

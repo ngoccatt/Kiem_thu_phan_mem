@@ -11,26 +11,40 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-filename = path = Path(__file__).parent / "boundaryData_full.txt"
+filename = path = Path(__file__).parent / "boundaryData_full.json"
 
+nameTest = []
 
 def dataForTest():
+    global nameTest
+    commonData = {}
     dataTest = []
     with open(filename, "r") as f:
-        line = f.readline()
-        while line:
-            data = line.split(";")
-            for i in range(0, len(data)):
-                data[i] = str(data[i]).strip()
-            loginCredential = (data[0].split(","))
-            answer1 = data[1]
-            answer2 = data[2]
-            expectedTotal = data[3]
-            dataTest.append(
-                (loginCredential, answer1, answer2, expectedTotal)
-            )
-            line = f.readline()
+        data = json.load(f)
+        for key, values in data.items():
+            print(key)
+            if "commonData" in key:
+                commonData = values
+            if "test" in key:
+                url = values["url"]
+                loginCredential = values["loginCredential"]
+                answer1 = values["answer1"]
+                answer2 = values["answer2"]
+                expectedTotal = values["expectedTotal"]
+                dataTest.append(
+                    (commonData, url, loginCredential, answer1, answer2, expectedTotal)
+                )
+                nameTest.append(key)
+
     return dataTest
+
+"""
+get element value, assuming each element have "value" attribute
+"""
+
+
+def getElementValue(element):
+    return element["value"].strip()
 
 
 class TestBoundary1():
@@ -42,6 +56,7 @@ class TestBoundary1():
 
     def teardown_method(self, method):
         self.driver.quit()
+        pass
 
     def exit_help_modal(self, driver):
         # Create an ActionChains object
@@ -50,44 +65,60 @@ class TestBoundary1():
         actions.send_keys(Keys.ESCAPE).perform()
         actions.send_keys(Keys.ESCAPE).perform()
 
+    """
+          Save effort when finding element, assuming all element object has "findMethod" and "findString" attribute.
+          findMethod: By.??
+          findString: a string to find element, depend on the findMethod.
+          """
+
+    def findElementShort(self, element):
+        return self.driver.find_element(By.get_finder(element["findMethod"]), element["findString"])
+
     @pytest.mark.parametrize(
+        "commonData, "
+        "url, "
         "loginCredential, "  # (username, password)
         "answer1, "
         "answer2, "
         "expectedTotal, ",
         dataForTest(),
+        ids=nameTest
     )
-    def test_boundary1(self, loginCredential, answer1, answer2, expectedTotal):
-        self.driver.get("https://sandbox404.moodledemo.net/")
+    def test_boundary1(self, commonData, url, loginCredential,
+                       answer1, answer2, expectedTotal):
+        self.driver.get(url)
         self.driver.set_window_size(1210, 1017)
-        self.driver.find_element(By.CSS_SELECTOR, ".login > a").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".login-container").click()
+        self.findElementShort(commonData["loginHomeButton"]).click()
         time.sleep(3)
-        self.driver.find_element(By.ID, "username").clear()
-        self.driver.find_element(By.ID, "password").clear()
-        self.driver.find_element(By.ID, "username").send_keys(loginCredential[0])
-        self.driver.find_element(By.ID, "password").send_keys(loginCredential[1])
-        self.driver.find_element(By.ID, "loginbtn").click()
+        self.findElementShort(loginCredential["username"]).clear()
+        self.findElementShort(loginCredential["password"]).clear()
+        self.findElementShort(loginCredential["username"]).send_keys(getElementValue(loginCredential["username"]))
+        self.findElementShort(loginCredential["password"]).send_keys(getElementValue(loginCredential["password"]))
+        self.findElementShort(commonData["loginButton"]).click()
         time.sleep(3)
-        self.driver.find_element(By.LINK_TEXT, "My courses").click()
         time.sleep(3)
-        self.driver.find_element(By.CSS_SELECTOR, ".multiline > span:nth-child(2)").click()
+
+        self.findElementShort(commonData["myCourseButton"]).click()
+        time.sleep(3)
+        self.findElementShort(commonData["myFirstCourse"]).click()
         time.sleep(3)
         self.exit_help_modal(self.driver)
-        self.driver.find_element(By.CSS_SELECTOR, ".modtype_quiz .aalink").click()
-        self.driver.find_element(By.XPATH,
-                                 "//button[contains(.,\'Attempt quiz\') or contains(.,\'Re-attempt quiz\')]").click()
+        self.findElementShort(commonData["quiz1"]).click()
+        self.findElementShort(commonData["attemptQuizButton"]).click()
         time.sleep(3)
-        self.driver.find_element(By.XPATH, "//input[contains(@id, \"1_answer\")]").clear()
-        self.driver.find_element(By.XPATH, "//input[contains(@id,\'1_answer\')]").send_keys(answer1)
-        self.driver.find_element(By.XPATH, "//input[contains(@id,\'2_answer\')]").clear()
-        self.driver.find_element(By.XPATH, "//input[contains(@id,\'2_answer\')]").send_keys(answer2)
-        self.driver.find_element(By.ID, "mod_quiz-next-nav").click()
-        self.driver.find_element(By.XPATH, "//button[contains(.,\'Submit all and finish\')]").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".modal-footer > .btn-primary").click()
+        self.findElementShort(answer1).clear()
+        self.findElementShort(answer1).send_keys(getElementValue(answer1))
+        self.findElementShort(answer2).clear()
+        self.findElementShort(answer2).send_keys(getElementValue(answer2))
+        self.findElementShort(commonData["finishQuizButton"]).click()
+        self.findElementShort(commonData["submitQuizButton"]).click()
+        self.findElementShort(commonData["confirmSubmitButton"]).click()
         time.sleep(2)
-        assert self.driver.find_element(By.CSS_SELECTOR, "tr:nth-child(5) > .cell:nth-child(2)").text == expectedTotal
-        self.driver.find_element(By.LINK_TEXT, "Finish review").click()
+        assert self.findElementShort(expectedTotal).text == getElementValue(expectedTotal)
+        actions = ActionChains(self.driver)
+        # Scroll down till the end (Finish review button is INTERCEPTED BY THE STUPID "THIS PAGE WILL BE RESET" OF MOODLE")
+        actions.scroll_by_amount(0, 1000).perform()
+        self.findElementShort(commonData["finishReviewButton"]).click()
         time.sleep(3)
-        self.driver.find_element(By.ID, "user-menu-toggle").click()
-        self.driver.find_element(By.LINK_TEXT, "Log out").click()
+        self.findElementShort(commonData["userToggleMenu"]).click()
+        self.findElementShort(commonData["logOutButton"]).click()
