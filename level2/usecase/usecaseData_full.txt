@@ -1,0 +1,17 @@
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;0;;;False;;Monday, 11 November, 8:00 AM;Testing event;School;;;
+
+{"usecaseTest": [
+
+]}
+
+student,sandbox24;Testing;11,November,2024,08,00;False;Testing event;School;0;;;False;;Monday, 11 November, 8:00 AM;Testing event;School;;;
+student,sandbox24;Testing;11,November,2024,08,00;True;;School;0;;;False;;Monday, 11 November, 8:00 AM;;School;;;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;;0;;;False;;Monday, 11 November, 8:00 AM;Testing event;;;;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;1;11,November,2024,09,00;;False;;Monday, 11 November, 8:00 AM » 9:00 AM;Testing event;School;;;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;2;;120;False;;Monday, 11 November, 8:00 AM » 10:00 AM;Testing event;School;;;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;0;;;True;2;Monday, 11 November, 8:00 AM;Testing event;School;Monday, 18 November, 8:00 AM;;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;1;11,November,2024,09,00;;True;2;Monday, 11 November, 8:00 AM » 9:00 AM;Testing event;School;Monday, 18 November, 8:00 AM » 9:00 AM;;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;2;;120;True;2;Monday, 11 November, 8:00 AM » 10:00 AM;Testing event;School;Monday, 18 November, 8:00 AM » 10:00 AM;;
+student,sandbox24;;11,November,2024,08,00;True;Testing event;School;0;;;False;;Monday, 11 November, 8:00 AM;Testing event;School;;- Required;
+student,sandbox24;;11,November,2024,08,00;False;Testing event;School;0;;;False;;Monday, 11 November, 8:00 AM;Testing event;School;;- Required;
+student,sandbox24;Testing;11,November,2024,08,00;True;Testing event;School;1;10,November,2024,09,00;;False;;;;;;The date and time you selected for duration until is before the start time of the event. Please correct this before proceeding.;

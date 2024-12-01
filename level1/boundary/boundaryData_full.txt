@@ -1,0 +1,7 @@
+student,sandbox24;24.409;24.409cm;0.00/2.00;
+student,sandbox24;24.41;24.41cm;2.00/2.00;
+student,sandbox24;24.411;24.411cm;2.00/2.00;
+student,sandbox24;24.42;24.42cm;2.00/2.00;
+student,sandbox24;24.429;24.429cm;2.00/2.00;
+student,sandbox24;24.43;24.43cm;2.00/2.00;
+student,sandbox24;24.431;24.431cm;0.00/2.00;

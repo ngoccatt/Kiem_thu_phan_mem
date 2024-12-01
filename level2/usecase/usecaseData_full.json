@@ -1,0 +1,139 @@
+{
+  "test 1": {
+    "url": "https://sandbox404.moodledemo.net/",
+    "loginCredential": {
+      "username": {
+        "findMethod": "ID",
+        "findString": "username",
+        "value": "student"
+      },
+      "password": {
+        "findMethod": "ID",
+        "findString": "password",
+        "value": "sandbox24"
+      }
+    },
+    "eventName": {
+      "findMethod": "ID",
+      "findString": "id_name",
+      "value": "Testing"
+    },
+    "startTime": {
+      "day": {
+        "findMethod": "ID",
+        "findString": "id_timestart_day",
+        "value": "11"
+      },
+      "month": {
+        "findMethod": "ID",
+        "findString": "id_timestart_month",
+        "value": "November"
+      },
+      "year": {
+        "findMethod": "ID",
+        "findString": "id_timestart_year",
+        "value": "2024"
+      },
+      "hour": {
+        "findMethod": "ID",
+        "findString": "id_timestart_hour",
+        "value": "08"
+      },
+      "minute": {
+        "findMethod": "ID",
+        "findString": "id_timestart_minute",
+        "value": "00"
+      }
+    },
+    "extend": {
+      "findMethod": "LINK_TEXT",
+      "findString": "Show more...",
+      "value": "True"
+    },
+    "eventDescription": {
+      "frameName": "id_description_ifr",
+      "findMethod": "ID",
+      "findString": "tinymce",
+      "value": "Testing event"
+    },
+    "eventLocation": {
+      "findMethod": "ID",
+      "findString": "id_location",
+      "value": "School"
+    },
+    "durationSelection": {
+      "findMethod": "ID",
+      "findString": "id_duration_",
+      "value": "0",
+      "durationUntil": {
+        "day": {
+          "findMethod": "ID",
+          "findString": "id_timedurationuntil_day",
+          "value": "11"
+        },
+        "month": {
+          "findMethod": "ID",
+          "findString": "id_timedurationuntil_month",
+          "value": "November"
+        },
+        "year": {
+          "findMethod": "ID",
+          "findString": "id_timedurationuntil_year",
+          "value": "2024"
+        },
+        "hour": {
+          "findMethod": "ID",
+          "findString": "id_timedurationuntil_hour",
+          "value": "08"
+        },
+        "minute": {
+          "findMethod": "ID",
+          "findString": "id_timedurationuntil_minute",
+          "value": "00"
+        }
+      },
+      "durationMinutes": {
+        "findMethod": "ID",
+        "findString": "id_timedurationminutes",
+        "value": "120"
+      }
+    },
+    "repeat": {
+      "findMethod": "ID",
+      "findString": "id_repeat",
+      "value": "False",
+      "noOfRepeat": {
+        "findMethod": "ID",
+        "findString": "id_repeats",
+        "value": "2"
+      }
+    },
+    "expectResult": {
+      "expectedTime": {
+        "findMethod": "CSS_SELECTOR",
+        "findString": ".dimmed_text",
+        "value": "Monday, 11 November, 8:00 AM"
+      },
+      "expectedDescription": {
+        "findMethod": "CSS_SELECTOR",
+        "findString": ".description-content > p",
+        "value": "Testing event"
+      },
+      "expectedLocation": {
+        "findMethod": "CSS_SELECTOR",
+        "findString": ".location-content",
+        "value": "School"
+      },
+      "expectedTime2": {
+        "findMethod": "CSS_SELECTOR",
+        "findString": ".dimmed_text",
+        "value": ""
+      },
+      "expectedError": {
+        "findMethod": "",
+        "findString": "",
+        "value": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+student,sandbox24;
+Testing;
+11,November,2024,08,00;
+True;
+Testing event;
+School;
+0;
+;
+;
+False;
+;
+Monday, 11 November, 8:00 AM;
+Testing event;
+School;
+;
